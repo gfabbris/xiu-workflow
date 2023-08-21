@@ -19,10 +19,10 @@ dependencies:
   - pyqtwebengine
   - scikit-image==0.20.0
   - scikit-learn
-  - xrayutilities
   - spec2nexus
   - mayavi
   - lmfit
   - pip
   - pip:
+    - xrayutilities  # Cannot install through conda in newer Macs
     - rsMap3D
