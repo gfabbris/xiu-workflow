@@ -1,0 +1,29 @@
+/home/beams/USER6IDB/Data/run21_2/Beom/pmn_pt011/pmn_pt011_2_1.spec
+
+
+(022) measurement
+#(103,105)  - (223,225) - (343-345)
+
+
+
+
+(211) measurement
+
+#(348-349) -- -400V
+#(387,390) - (470,472) - (590,592) -140V -- 400V -- -400V
+#(593,595) - (713,715) - (833,835) -400V -- 400V -- -400V
+#837 (2 1 1) eta -1 1 400 1 at -400V --for  hkl 3d map
+#838 (2 1 1) eta -1 1 400 1 at 0V --for  hkl 3d map
+#839 (2 1 1) eta -1 1 400 1 at 200V --for  hkl 3d map
+
+#840 (0 2 2) eta -1 1 400 1 at 0V --for  hkl 3d map
+
+
+
+/home/beams/USER6IDB/Data/run21_2/Beom/pmn_pt011/pmnpt001_1.spec 
+
+
+
+#184 (0 0 4) eta -1 1 400 1 at 700V --for  hkl 3d map
+#185 (0 0 4) eta -1 1 400 1 at 0V --for  hkl 3d map
+

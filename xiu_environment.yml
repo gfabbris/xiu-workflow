@@ -1,0 +1,28 @@
+name: xiu-wf
+channels:
+  - defaults
+  - conda-forge
+  - aps-anl-tag
+dependencies:
+  - python=3.8 # python 3.10 breaks mayavi, rsMap3D needs <= 3.8
+  - numpy
+  - scipy
+  - matplotlib
+  - jupyter
+  - pandas
+  - ipympl
+  - dask
+  - h5py
+  - hdf5plugin
+  - pyqt
+  - pyqtgraph
+  - pyqtwebengine
+  - scikit-image==0.20.0
+  - scikit-learn
+  - xrayutilities
+  - spec2nexus
+  - mayavi
+  - lmfit
+  - pip
+  - pip:
+    - rsMap3D
