@@ -99,7 +99,7 @@ def plot_spec_scan(scan_number, spec_file, x=None, y=None, y0=None, ax=None):
         y0 = None
 
     xi = np.array(scan.data[x])
-    monitor = 1.0 if y0 == None else np.array(scan.data[y0])
+    monitor = 1.0 if y0 is None else np.array(scan.data[y0])
     yi = np.array(scan.data[y])/monitor
 
     if ax is None:
@@ -370,6 +370,10 @@ def plot_1d_line_cuts(
     radius=5,
     log_scale=False,
     plot_3d=True,
+    scan_image_directory_base=(
+        "/home/beams/USER6IDB/Data/run23_2_lab2/staff/EuAl4/images/" +
+        "EuAl4_001_1/S{}"
+    )
 ):
     line_cuts = []
     z_values = []
@@ -384,10 +388,7 @@ def plot_1d_line_cuts(
 
     set_bounds = None
     for idx, s_n in enumerate(scans):
-        scan_image_directory = (
-            "/home/beams/USER6IDB/Data/run23_2_lab2/staff/EuAl4/images/" +
-            "EuAl4_001_1/S" + str(s_n)
-        )
+        scan_image_directory = scan_image_directory_base.format(str(s_n))
         scan = spec_data_file.getScan(s_n)
         raw_image_data = get_raw_image_data(
             spec_scan=scan,
@@ -453,7 +454,8 @@ def plot_1d_line_cuts(
                     color=colors[idx],
                     alpha=0.75,
                 )
-            elif line_cut_bounds[1][0] != line_cut_coords[1][-1]:
+            # elif line_cut_bounds[1][0] != line_cut_coords[1][-1]:
+            elif line_cut_bounds[1][0] != line_cut_bounds[1][-1]:
                 ax.plot(
                     np.linspace(
                         line_cut_bounds[1][0],
@@ -567,8 +569,8 @@ def get_1d_line_cut(data, coords, point_1, point_2, radius):
     offsets = np.arange(-radius, radius + 1)
     offsets_grid = np.meshgrid(offsets, offsets, offsets)
     offsets_array = np.stack(offsets_grid, axis=-1).reshape(-1, 3)
-    distances = np.linalg.norm(offsets_array, axis=1)
-    valid_offsets = offsets_array[distances <= radius]
+    # distances = np.linalg.norm(offsets_array, axis=1)
+    # valid_offsets = offsets_array[distances <= radius]
 
     x1, y1, z1 = (np.searchsorted(coords[i], point_1[i]) for i in range(3))
     x2, y2, z2 = (np.searchsorted(coords[i], point_2[i]) for i in range(3))
